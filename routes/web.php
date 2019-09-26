@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function () {
+    return 'You are login into Admin Dashboard';
+})->middleware(['auth','auth.admin']);
+
+Route::resource('users', 'UserController');
+
