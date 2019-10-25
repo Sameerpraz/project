@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\user;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -14,10 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('users.index')->with('users', $users);
-    }
+        $users = User::paginate(5);
+        return view('users.index',compact('users'));
+       // return view('users.index',compact('users'))->with('i',(request()->input('page',1)-1)*5);
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -27,6 +27,7 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
+       
     }
 
     /**
@@ -39,17 +40,18 @@ class UserController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'email'=>'required'
+            'email'=>'required',
+            'password'=>'required'
         ]);
 
         $user = new User([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password'=>$request->get('password')
-
+            'password' => $request->get('password'),
         ]);
         $user->save();
-        return redirect('/users')->with('success', 'User saved');
+        return redirect('/users')->with('success', 'User is successfully saved');
+       
     }
 
     /**
@@ -60,8 +62,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('users.show')->with('user', $user);
+        // $user = User::find($id);
+        // return view('users.show')->with('users', $user);
     }
 
     /**
@@ -96,7 +98,7 @@ class UserController extends Controller
     
         $user->save();
 
-        return redirect('/users')->with('success', 'Contact updated!');
+        return redirect('users')->with('success', 'Contact updated!');
     }
 
     /**
@@ -110,6 +112,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/users')->with('success', 'Contact deleted!');
+        return redirect('users')->with('success', 'Contact deleted!');
     }
 }
