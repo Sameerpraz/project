@@ -12,7 +12,7 @@
 
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">Add User</h1>
+    <h1 class="display-3">Add Category</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -23,20 +23,23 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('users.store') }}">
+      <form method="post" action="{{ route('categories.store') }}">
           @csrf
           <div class="form-group">    
-              <label for="name">Name:</label>
-              <input type="text" class="form-control" name="name"/>
+              <label for="id">CID</label>
+              <input type="text" class="form-control" name="id"/>
           </div>
         
           <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email"/>
+              <label for="cat_name">Cat_Name</label>
+              <input type="text" class="form-control" name="cat_name"/>
           </div>  
           <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="text" class="form-control" name="password"/>
+              <label for="status">Status:</label>
+              <select name="status">
+              <option value="1">1</option>
+              <option value="0">0</option>
+              </select>
           </div>                      
           <button type="submit" class="btn btn-primary-outline">save</button>
       </form>

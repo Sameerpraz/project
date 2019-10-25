@@ -24,4 +24,6 @@ Route::get('/admin', function () {
 })->middleware(['auth','auth.admin']);
 
 Route::resource('users', 'UserController');
-
+Route::resource('categories','CategoryController');
+Route::get('search','CategoryController@search');
+Route::resource('subcategories','SubcategoryController');

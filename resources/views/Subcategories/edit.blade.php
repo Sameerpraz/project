@@ -15,18 +15,17 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('users.update', $user->id) }}">
+        <form method="post" action="{{ route('subcategories.update', $subcategory->id) }}">
             @method('PATCH') 
             @csrf
             <div class="form-group">
-
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" value={{ $user->name }} />
+                <label for="id">Sid:</label>
+                <input type="text" class="form-control" name="id" value={{ $subcategory->id }} />
             </div>
 
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $user->email }} />
+                <label for="cid">Cid</label>
+                <input type="text" class="form-control" name="cid" value={{ $subcategory->cid }} />
             </div>
             
             <button type="submit" class="btn btn-primary">Update</button>

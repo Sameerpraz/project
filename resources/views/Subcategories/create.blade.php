@@ -3,7 +3,7 @@
 @section('main')
 <div class="col-sm-12">
 
-  @if(session()->get('success'))
+  @if($message = Session::get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
     </div>
@@ -12,10 +12,11 @@
 
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">Add User</h1>
+    <h1 class="display-3">Add subCategory</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
+      <strong>Whoops!</strong>There is some problems with your products<br>
         <ul>
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
@@ -23,20 +24,16 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('users.store') }}">
+      <form method="post" action="{{ route('subcategories.store') }}">
           @csrf
           <div class="form-group">    
-              <label for="name">Name:</label>
-              <input type="text" class="form-control" name="name"/>
+              <label for="id">Sid</label>
+              <input type="text" class="form-control" name="id"/>
           </div>
         
           <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email"/>
-          </div>  
-          <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="text" class="form-control" name="password"/>
+              <label for="cid">Cid</label>
+              <input type="text" class="form-control" name="cid"/>
           </div>                      
           <button type="submit" class="btn btn-primary-outline">save</button>
       </form>
