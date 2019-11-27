@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('product_name')->unique();
             $table->string('product_title');
             $table->unsignedBigInteger('uid')->unsigned();
-            $table->foreign('uid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('uid')->references('id')->on('users');
+           // $table->foreign('uid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('product_slug')->unique();
             $table->string('product_posted_by');
             $table->timestamps();

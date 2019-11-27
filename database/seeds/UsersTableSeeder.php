@@ -13,32 +13,41 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-
-        $adminRole= Role::where('name','admin')->first();
-        $sellerRole=Role::where('name','seller')->first();
-        $buyerRole=Role::where('name','buyer')->first();
-
-        $admin=User::create([
-            'name'=>'admin',
-            'email'=>'admin@gmail.com',
-            'password'=>bcrypt('12345678')
+        \App\Models\User::create([
+            'name'=>'User',
+            'username'=>'user',
+            'email'=>'user@gmail.com',
+            'password'=>bcrypt('user@123')
         ]);
 
-        $seller=User::create([
-            'name'=>'seller',
-            'email'=>'seller@gmail.com',
-            'password'=> bcrypt('12345678')
+        \App\Models\User::create([
+            'name'=>'Samir',
+            'username'=>'Samir',
+            'email'=>'samirpar788@gmail.com',
+            'password'=>bcrypt('samir@123')
         ]);
+        /* User::truncate();
 
-        $buyer=User::create([
-            'name'=>'seller',
-            'email'=>'buyer@gmail.com',
-            'password'=> bcrypt('12345678')
-        ]);
+         $adminRole= Role::where('name','admin')->first();
+         $sellerRole=Role::where('name','seller')->first();
+         $buyerRole=Role::where('name','buyer')->first();
 
-        $admin->roles()->attach($adminRole);
-        $buyer->roles()->attach($buyerRole);
-        $seller->roles()->attach($sellerRole);
+
+
+         $seller=User::create([
+             'name'=>'seller',
+             'email'=>'seller@gmail.com',
+             'password'=> bcrypt('12345678')
+         ]);
+
+         $buyer=User::create([
+             'name'=>'seller',
+             'email'=>'buyer@gmail.com',
+             'password'=> bcrypt('12345678')
+         ]);
+
+        /* $admin->roles()->attach($adminRole);
+         $buyer->roles()->attach($buyerRole);
+         $seller->roles()->attach($sellerRole);*/
     }
 }
