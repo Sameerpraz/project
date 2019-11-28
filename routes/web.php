@@ -5,15 +5,22 @@
 //-------Route added for Frontend-------------
 Route::group(['namespace'=>'Frontend'],function(){
     Route::any('/','ApplicationController@index')->name('index');
+    Route::any('contact','ApplicationController@contact')->name('contact');
+    Route::any('contact/submit','ApplicationController@contactform')->name('contactform');
+
     Route::any('login','UserLoginController@index')->name('login');
     Route::any('user-register','UserLoginController@add')->name('user-register');
     Route::any('password-reset','UserLoginController@passwordreset')->name('password-reset');
 
-
     Route::group(['prefix'=>'users','middleware'=>'auth:web'],function(){
         Route::any('user-info','UserLoginController@userdetails')->name('user-info');
-        Route::group(['prefix'=>'user-dashboard'],function() {
-            Route::any('myprofile', 'ProfileController@index')->name('myprofile');
+        Route::group(['prefix'=>'user-info'],function() {
+            Route::group(['prefix' => 'user-dashboard'], function () {
+                Route::any('myprofile', 'ProfileController@index')->name('myprofile');
+                Route::any('edit-profile', 'ProfileController@edit')->name('edit-profile');
+                Route::any('product-add', 'ProfileController@addproduct')->name('product-add');
+                Route::any('change-password', 'ProfileController@changepassword')->name('change-password');
+            });
         });
 
 
@@ -50,6 +57,7 @@ Route::group(['namespace'=>'Backend','prefix'=>'admin','middleware'=>'auth:admin
         Route::any('admin-users-type','AdminUserController@user_type')->name('admin-users-type');
         Route::any('admin-edit/{id}','AdminUserController@edit')->name('admin-edit');
         Route::any('changePassword','PasswordController@showChangePasswordForm')->name('changePassword');
+        Route::any('changePasswordsubmit','PasswordController@changePassword')->name('changepasswordform');
       //  Route::any('password','@index')->name('password');
     });
    Route::any('admin-logout','AdminLoginController@logout')->name('admin-logout');

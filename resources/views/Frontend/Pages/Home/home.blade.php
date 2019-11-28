@@ -118,7 +118,7 @@
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About Us</a></li>
                                         <li><a href="blog-post.html">Blog Post</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#">Contact</a></li>
                                         <li><a href="elements.html">Join with us</a></li>
                                         <li><a href="#">Dropdown</a>
                                             <ul class="dropdown">
@@ -131,7 +131,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="frontend/receipe-post.html">More Search</a></li>
-                                <li><a href="frontend/contact.html">Contact</a></li>
+                                <li><a href="{{route('contact')}}">Contact</a></li>
                                 <li><a href="{{route('login')}}" class="fa fa-user">Join with us</a></li>
                             </ul>
 

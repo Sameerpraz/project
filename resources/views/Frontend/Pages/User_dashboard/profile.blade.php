@@ -1,4 +1,4 @@
-@extends('backend.master.master')
+@extends('frontend.master.master')
 
 @section('content')
 
@@ -26,6 +26,9 @@
 </div>
 </div>
 
+
+
+<!-- page content -->
 <div class="right_col" role="main">
     <div class="">
 
@@ -35,26 +38,17 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Show Users Information</h2>
-                        <div class="clearfix">
-                        </div>
-                        <form method="post" action="{{ route('users.update', $user->id) }}">
-                            @method('PATCH')
-                            @csrf
-                            <div class="form-group">
-
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" name="name" value={{ $user->name }} />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="text" class="form-control" name="email" value={{ $user->email }} />
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </form>
-
+                        <h2>Admin ADD</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div>
+                        hhhh
                     </div>
 
                 </div>
@@ -62,5 +56,12 @@
         </div>
     </div>
 </div>
+<!-- /page content -->
+
+<!-- footer content -->
+
+
+
 </html>
+
 @endsection

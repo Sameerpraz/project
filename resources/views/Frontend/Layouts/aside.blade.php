@@ -31,15 +31,13 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{route('myprofile')}}"><i class="fa fa-dashboard"></i> Dashboard </a>
+                  <li><a href="{{route('myprofile')}}"><i class="fa fa-dashboard"></i>User Dashboard </a>
                   </li>
-                  {{--<li><a><i class="fa fa-users"></i>Users<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{route('add-admin')}}">Add</a></li>
-                      <li><a href="{{route('admin-users')}}">Show</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-th"></i>Categories<span class="fa fa-chevron-down"></span></a>
+                  <li><a href="{{route('edit-profile')}}"><i class="fa fa-user"></i>User Profile</a></li>
+                  <li><a href="{{route('product-add')}}"><i class="fa fa-user"></i>Add Product</a></li>
+                  <li><a href="{{route('change-password')}}"><i class="fa fa-user"></i>Change Password</a></li>
+
+                 {{-- <li><a><i class="fa fa-th"></i>Categories<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Index</a></li>        
                     </ul>
